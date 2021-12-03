@@ -3,6 +3,7 @@
 ![Docker Pulls](https://img.shields.io/docker/pulls/ugleiton/glpi) ![Docker Stars](https://img.shields.io/docker/stars/ugleiton/glpi) [![](https://images.microbadger.com/badges/image/ugleiton/glpi.svg)](http://microbadger.com/images/ugleiton/glpi "Get your own image badge on microbadger.com") ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ugleiton/glpi)
 
 [![Github Badge](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white&link=https://github.com/ugleiton/glpi-docker)](https://github.com/ugleiton/glpi-docker)
+![Github Workflow](https://github.com/ugleiton/glpi-docker/actions/workflows/docker-build-release.yaml/badge.svg)
 
 ## Implantar GLPI via linha de comando sem persistencia de dados ( para testes rápidos )
 ```sh
