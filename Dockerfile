@@ -1,7 +1,7 @@
 FROM php:7.3-apache
 
 ENV VERSION_GLPI=9.3.2
-
+ENV LANG=en_US
 COPY docker-entrypoint-pre.sh /opt/
 RUN apt-get update -qq \
     #dependencias
@@ -35,6 +35,8 @@ RUN apt-get update -qq \
     && chmod +x /opt/docker-entrypoint-pre.sh \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY checkinstall.php /var/www/html/scripts/
 COPY supervisor.conf /etc/supervisor/conf.d/
 
+ENTRYPOINT [ ] 
 CMD ["/bin/sh", "-c", "/usr/bin/supervisord -n"]
