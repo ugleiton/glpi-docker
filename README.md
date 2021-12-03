@@ -115,9 +115,9 @@ services:
 
 
 ---
-**NOTE**
+**Observação**
 
-   As contas de usuário padrão após instalação são:
+   As contas de usuário padrão após a instalação são:
 
    * *glpi/glpi* conta de administrador,
    * *tech/tech* conta de técnico,
