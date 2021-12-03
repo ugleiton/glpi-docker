@@ -2,8 +2,6 @@
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/ugleiton/glpi) ![Docker Stars](https://img.shields.io/docker/stars/ugleiton/glpi) [![](https://images.microbadger.com/badges/image/ugleiton/glpi.svg)](http://microbadger.com/images/ugleiton/glpi "Get your own image badge on microbadger.com") ![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/ugleiton/glpi)
 
-# Introduction
-
 ## Implantar GLPI via linha de comando sem persistencia de dados ( para testes rápidos )
 ```sh
 docker run \
@@ -114,3 +112,13 @@ services:
     env_file:
       - .env
 ```
+
+
+.. note::
+
+   As contas de usuário padrão após instalação são:
+
+   * *glpi/glpi* conta de administrador,
+   * *tech/tech* conta de técnico,
+   * *normal/normal* conta "normal",
+   * *post-only/postonly* conta somente pós-publicação.
