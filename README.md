@@ -114,7 +114,8 @@ services:
 ```
 
 
-.. note::
+---
+**NOTE**
 
    As contas de usuário padrão após instalação são:
 
@@ -122,3 +123,4 @@ services:
    * *tech/tech* conta de técnico,
    * *normal/normal* conta "normal",
    * *post-only/postonly* conta somente pós-publicação.
+---
