@@ -117,7 +117,7 @@ services:
 ---
 **Observação**
 
-   As contas de usuário padrão após a instalação são:
+   As contas padrões após a instalação são:
 
    * *glpi/glpi* conta de administrador,
    * *tech/tech* conta de técnico,
