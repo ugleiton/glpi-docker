@@ -14,6 +14,7 @@ RUN apt-get update -qq \
         libonig-dev \
         libzip-dev \
         wget \
+        cron \
         supervisor \
         libldb-dev \
         libldap2-dev \
@@ -51,6 +52,8 @@ RUN apt-get update -qq \
     && curl https://raw.githubusercontent.com/eficode/wait-for/master/wait-for --output /opt/wait-for \
     && chmod +x /opt/docker-entrypoint-pre.sh \
     && chmod +x /opt/wait-for \
+    && echo "*/2 * * * * www-data /usr/bin/php /var/www/html/front/cron.php &>/dev/null" >> /etc/cron.d/glpi \
+    && chmod 0644 /etc/cron.d/* \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY checkinstall.php /var/www/html/scripts/
