@@ -23,5 +23,5 @@ ps-dev:
 publish: 
 	docker build -t $(APP_NAME):latest .
 	docker push $(APP_NAME):latest
-	docker tag $(APP_NAME):$(VERSION)
+	docker tag $(APP_NAME):latest $(APP_NAME):$(VERSION)
 	docker push $(APP_NAME):$(VERSION)
