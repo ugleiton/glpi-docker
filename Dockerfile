@@ -6,7 +6,23 @@ COPY docker-entrypoint-pre.sh /opt/
 RUN apt-get update -qq \
     #dependencias
     && rm /etc/apt/preferences.d/no-debian-php \
-    && apt install --yes --no-install-recommends gnupg libcurl3-dev libxml2-dev lsb-release libonig-dev libzip-dev wget supervisor libldb-dev libldap2-dev libc-client-dev libkrb5-dev libbz2-dev libpng-dev ca-certificates \
+    && apt install --yes --no-install-recommends \
+        gnupg \
+        libcurl3-dev \
+        libxml2-dev \
+        lsb-release \
+        libonig-dev \
+        libzip-dev \
+        wget \
+        supervisor \
+        libldb-dev \
+        libldap2-dev \
+        libc-client-dev \
+        libkrb5-dev \
+        libbz2-dev \
+        libpng-dev \
+        ca-certificates \
+        netcat \
     && rm -r /var/lib/apt/lists/* \
     #configurações php
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee -a /etc/apt/sources.list.d/php.list \
@@ -32,11 +48,13 @@ RUN apt-get update -qq \
     && tar -xzvf /tmp/glpi-${VERSION_GLPI}.tgz -C /tmp/\
     && cp -Rap /tmp/glpi/* /var/www/html/ \
     && chown -R www-data:www-data /var/www/html/ \
+    && curl https://raw.githubusercontent.com/eficode/wait-for/master/wait-for --output /opt/wait-for \
     && chmod +x /opt/docker-entrypoint-pre.sh \
+    && chmod +x /opt/wait-for \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY checkinstall.php /var/www/html/scripts/
 COPY supervisor.conf /etc/supervisor/conf.d/
 
 ENTRYPOINT [ ] 
-CMD ["/bin/sh", "-c", "/usr/bin/supervisord -n"]
+CMD ["/bin/sh", "-c", "/opt/./wait-for ${MYSQL_HOST}:3306 -- /usr/bin/supervisord -n"]
