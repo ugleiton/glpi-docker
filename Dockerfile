@@ -44,6 +44,7 @@ RUN apt-get update -qq \
         zip \
         bz2 \
         gd \
+        soap \
     #configurações glpi
     && wget -P /tmp/ https://github.com/glpi-project/glpi/releases/download/${VERSION_GLPI}/glpi-${VERSION_GLPI}.tgz \
     && tar -xzvf /tmp/glpi-${VERSION_GLPI}.tgz -C /tmp/\
